@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_graph"
+    app:startDestination="@id/RocketLaunchesFragment">
+
+    <fragment
+        android:id="@+id/RocketLaunchesFragment"
+        android:name="com.tesla.spacextest.presentation.fragment.RocketLaunchesFragment"
+        tools:layout="@layout/fragment_launch">
+        <action
+            android:id="@+id/action_RocketLaunchesFragment_to_LaunchDetailsFragment"
+            app:destination="@id/LaunchDetailsFragment" />
+        <action
+            android:id="@+id/action_RocketLaunchesFragment_to_FavouritesFragment"
+            app:destination="@id/FavouritesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/LaunchDetailsFragment"
+        android:name="com.tesla.spacextest.presentation.fragment.LaunchDetailsFragment"
+        tools:layout="@layout/fragment_launch_details">
+        <argument
+            android:name="launchDetails"
+            app:argType="com.tesla.spacextest.domain.rocket.RocketLaunchDisplayData"
+            app:nullable="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/FavouritesFragment"
+        android:name="com.tesla.spacextest.presentation.fragment.FavouritesFragment"
+        tools:layout="@layout/fragment_launch_details" />
+</navigation>

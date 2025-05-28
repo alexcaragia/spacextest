@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.androidx.safeargs.kotlin)
+    id("kotlin-parcelize")
 }
 
 android {
@@ -30,6 +32,11 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -42,6 +49,21 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    /*jetpack navigation*/
+    implementation(libs.bundles.jetpack.navigation)
+
+    /*networking*/
+    implementation(libs.gson)
+    implementation(libs.bundles.retrofit)
+
+    /*dependency injection*/
+    implementation(libs.bundles.koin)
+
+    /*third party*/
+    implementation(libs.youtubePlayer)
+    implementation(libs.glide)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
