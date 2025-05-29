@@ -3,7 +3,6 @@ package com.tesla.spacextest.domain.rocket
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-
 @Parcelize
 data class RocketLaunchDisplayData(
     val name: String?,
@@ -16,7 +15,8 @@ data class RocketLaunchDisplayData(
 data class LaunchDisplayInfo(
     val payloadMass: String?,
     val articleLink: String?,
-    val launchDetails: String?
+    val launchDetails: String?,
+    val youtubeId: String
 ) : Parcelable
 
 

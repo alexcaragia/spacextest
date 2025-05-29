@@ -17,7 +17,8 @@ private fun RocketLaunchInfoDto.toRocketLaunchDisplayData(): RocketLaunchDisplay
         launchDisplayInfo = LaunchDisplayInfo(
             payloadMass = "",
             articleLink = this.launchDetails.wikipedia,
-            launchDetails = this.details
+            launchDetails = this.details,
+            youtubeId = this.launchDetails.youtubeId
         ),
         name = this.name,
         launchDate = this.launchDate.formatUnixDate(),

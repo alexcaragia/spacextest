@@ -2,7 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.androidx.safeargs.kotlin)
-    id("kotlin-parcelize")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.parcelize)
 }
 
 android {
@@ -63,6 +64,9 @@ dependencies {
     /*third party*/
     implementation(libs.youtubePlayer)
     implementation(libs.glide)
+
+    /*room*/
+    implementation(libs.room)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
