@@ -5,7 +5,9 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.tesla.spacextest.data.local.database.FavoriteLaunchEntity
+import androidx.room.Transaction
+import com.tesla.spacextest.data.local.database.entities.DetailedFavoriteLaunch
+import com.tesla.spacextest.data.local.database.entities.FavoriteLaunchEntity
 
 @Dao
 interface FavoritesLaunchDao {
@@ -21,4 +23,8 @@ interface FavoritesLaunchDao {
 
     @Query("SELECT EXISTS(SELECT 1 FROM favorites WHERE launchId = :id)")
     suspend fun isFavorite(id: Int): Boolean
+
+    @Transaction
+    @Query("SELECT * FROM favorites")
+    suspend fun getFavoriteLaunchesWithDetails(): List<DetailedFavoriteLaunch>
 }

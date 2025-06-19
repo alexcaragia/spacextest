@@ -1,4 +1,4 @@
-package com.tesla.spacextest.data.local.database
+package com.tesla.spacextest.data.local.database.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -11,5 +11,5 @@ data class FavoriteLaunchDetailsEntity(
     val articleLink: String,
     val launchDetails: String,
     val youtubeId: String,
-    val launchId: String
+    val launchId: Int
 )

@@ -5,6 +5,7 @@ import com.tesla.spacextest.di.appModule
 import com.tesla.spacextest.di.dispatchersModule
 import com.tesla.spacextest.di.networkModule
 import com.tesla.spacextest.di.repositoryModule
+import com.tesla.spacextest.di.roomModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -16,7 +17,7 @@ class SpaceXApp : Application() {
         startKoin {
             androidLogger(Level.INFO)
             androidContext(this@SpaceXApp)
-            modules(appModule, networkModule, repositoryModule, dispatchersModule)
+            modules(appModule, networkModule, repositoryModule, dispatchersModule, roomModule)
         }
     }
 }

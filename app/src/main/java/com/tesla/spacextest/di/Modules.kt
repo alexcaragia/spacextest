@@ -1,8 +1,13 @@
 package com.tesla.spacextest.di
 
+import androidx.room.Room
+import com.tesla.spacextest.SpaceXApp
 import com.tesla.spacextest.common.dispatchers.AppDispatchers
+import com.tesla.spacextest.data.local.database.SpaceXDatabase
+import com.tesla.spacextest.data.local.repository.DefaultFavoriteLaunchesRepository
 import com.tesla.spacextest.data.remote.RocketLaunchApi
-import com.tesla.spacextest.data.repository.DefaultRocketLaunchRepository
+import com.tesla.spacextest.data.remote.repository.DefaultRocketLaunchRepository
+import com.tesla.spacextest.domain.repository.FavoriteLaunchesRepository
 import com.tesla.spacextest.domain.repository.RocketLaunchRepository
 import com.tesla.spacextest.presentation.viewmodel.RocketLaunchesViewModel
 import kotlinx.coroutines.Dispatchers
@@ -59,4 +64,18 @@ val dispatchersModule = module {
     single(named(AppDispatchers.Main)) {
         Dispatchers.Main
     }
+}
+
+val roomModule = module {
+    single {
+        Room.databaseBuilder(
+            get<SpaceXApp>(),
+            SpaceXDatabase::class.java, "spacex_database"
+        ).build()
+    }
+
+    single { get<SpaceXDatabase>().favoritesLaunchDao() }
+    single { get<SpaceXDatabase>().favoriteLaunchDetailsDao() }
+
+    single<FavoriteLaunchesRepository> { DefaultFavoriteLaunchesRepository() }
 }

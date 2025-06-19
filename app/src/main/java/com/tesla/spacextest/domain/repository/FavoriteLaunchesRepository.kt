@@ -1,6 +1,6 @@
 package com.tesla.spacextest.domain.repository
 
-import com.tesla.spacextest.data.local.database.FavoriteLaunchEntity
+import com.tesla.spacextest.data.local.database.entities.FavoriteLaunchEntity
 
 interface FavoriteLaunchesRepository {
     suspend fun addFavorite(launchEntity: FavoriteLaunchEntity)

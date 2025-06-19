@@ -1,4 +1,4 @@
-package com.tesla.spacextest.data.repository
+package com.tesla.spacextest.data.remote.repository
 
 import com.tesla.spacextest.common.ErrorMessages
 import com.tesla.spacextest.data.mappers.mapList
